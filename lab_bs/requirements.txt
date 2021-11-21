@@ -1,0 +1,5 @@
+pip
+keras==2.2.5
+tensorflow==1.6.0
+numpy==1.19.5
+h5py==2.9.0
