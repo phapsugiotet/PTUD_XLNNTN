@@ -1,19 +1,20 @@
 kế hoạch đề xuất sẻ được bổ sung dần
 Nhiệm vụ:
 -viết báo cáo			--
-	-lý thuyết		--
-	-Giới thiệu		--
+	-lý thuyết		--nam chơi game này
+	-Giới thiệu		--hợp tác làm ăn
 	---
--ppn báo cáo			--
+-ppn báo cáo			--nam chơi game này
 	---
--ppn hang tuần			--để chiến lo (>*<)
-	---
-
+-bc hang tuần			--ok
+	t4			--để chiến lo (>*<)
+	t5			--nam chơi game này
+	t6			--hợp tác làm ăn
 Tiến trình dự án:
 -xây dựng mô hình dự án		--ok
 -xác định cấu trúc		--ok
--code				--
-	-cơ sở NLP		--ok (không hiểu)
+-code				--ok
+	-cơ sở NLP		--ok
 	-phụ trợ seh		--ok
 	-phụ trợ seh us		--ok
 -xây dựng dao diện		--
@@ -22,7 +23,7 @@ Tiến trình dự án:
 	-fn GUI 		--
 	---
 -hoàng thiện sảng phẩm		--
-	-de test		--
-	-de test pn		--
+	-de test		--ok
+	-de test pn		--ok
 	-fn test		--
 	---
