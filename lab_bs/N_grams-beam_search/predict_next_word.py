@@ -77,14 +77,14 @@ def guess_word(text):
     if len(det[1]) > net_lt:
         nat = int(net_lt*cap_v)
         det[1] = det[1][:nat] + random.choices(det[1][nat:], k=net_lt-nat)
-        valueb = []
-        for x in det[1]:
-            valueb.append(x[0])
-        det[1] = valueb
+    valueb = []
+    for x in det[1]:
+        valueb.append(x[0])
+    det[1] = valueb
     return det
 
 
 
 
-tex = "đưa lên sàn_"
+tex = "hoa mai hà tây"
 print(guess_word(tex))

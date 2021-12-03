@@ -1,5 +1,0 @@
-đề xuất icon cho đoạn tin nhắn.
-kiểm tra chính tả.
-chuyển thể tiếng việt không dấu.
-dự đoán uy tính chất lượng sảng phẩm dựa trên đánh giá khách hàng (đánh giá phim, quần áo và mua sắm,...)
-chatbot trả lời tự động.(tuyển sinh, hỗ trợ khách hàng, chẩn đoán bện,...)
