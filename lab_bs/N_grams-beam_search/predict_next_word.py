@@ -36,7 +36,7 @@ def highest_probability(piece_text, piece_list):
         if piba[0] == 0:
             atast.append(0)
         else:
-            atast.append((0.57*(piba[0]/piba[1]) + 0.29*(le_2/piba[0]) + 0.14*(le_1/piba[0]))*(piba[0]/qes_ui_len))
+            atast.append((0.57*(piba[0]/piba[1]) + 0.29*(le_1/piba[0]) + 0.14*(le_2/piba[0]))*(piba[0]/qes_ui_len))
     return atast.index(max(atast))
 
 
@@ -57,20 +57,31 @@ for ind, val in enumerate(dabile_key):
 
 
 def guess_word(text):
+    text_cp = text[-1:]
     text_n = text.split()
     if len(text) > 3:
         text_n = text_n[-3:]
     text_dp = " ".join(text_n)
     text_dp = list(text_dp.lower())
+    con_c = 0
     while(len(text_n) > 0):
         text = " ".join(text_n)
         if text in dabile:
-            det = [[text], dabile[text]]
+            con_c = 1
+            det = [[text, con_c], dabile[text]]
+            break
+        for ind in dabile:
+            if ind.startswith(text):
+                con_c = 2
+                det = [[ind, con_c], dabile[ind]]
+                break
+        if con_c == 2:
             break
         text_n.pop(0)
     if len(text_n) == 0:
-        tex_dc = dabile_key_df[highest_probability(text_dp, dabile_key)]
-        det = [[tex_dc], dabile[tex_dc]]
+        text_p = highest_probability(text_dp, dabile_key)
+        tex_dc = dabile_key_df[text_p]
+        det = [[tex_dc, con_c], dabile[tex_dc]]
     net_lt = 6
     cap_v = 0.7
     det[1].sort(key=lambda s: s[1], reverse=True)
@@ -86,5 +97,6 @@ def guess_word(text):
 
 
 
-tex = "hoa mai hà tây"
-print(guess_word(tex))
+tex = "hoa mai là một lo"
+print(tex)
+print(guess_word(tex.lower()))
