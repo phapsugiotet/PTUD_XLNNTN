@@ -16,8 +16,8 @@ dùng có thể nhập vào một đoạn văn chương trình sẻ dự đoán 
 đưa gợi ý cho người dùng, người dùng có thể sử dụng những từ gợi ý để tiết 
 kiệm thời giang nhập liệu.
 
-đây là một bài tập về sử lý tự nhiên tôi quan ngại về khả năng ứng dụng của nó !!!
-![Alt Text](Recycle Bin/3160659525736480910.gif)
+đây là một bài tập về sử lý ngôn ngữ tự nhiên tôi quan ngại về khả năng ứng dụng của nó !!!
+![Alt Text](Recycle%20Bin/3160659525736480910.gif)
 
 ## Tài liệu tham khảo
 tôi đã tham khảo các trang này đẻ xây dựng thuật toán của mình, nguyên lý hoạt động thì giống nhau nên mọi nội dung bạn cần biết về nó bạn có thể xem tại đây
