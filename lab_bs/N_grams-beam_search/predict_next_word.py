@@ -1,9 +1,6 @@
 import random
 
 
-dabile = {}
-
-
 def texts_Compare_similarity(ls_text1, ls_text2):
     ata = 0
     ls_text2_t = list(ls_text2)
@@ -39,12 +36,14 @@ def highest_probability(piece_text, piece_list):
             atast.append((0.57*(piba[0]/piba[1]) + 0.29*(le_1/piba[0]) + 0.14*(le_2/piba[0]))*(piba[0]/qes_ui_len))
     return atast.index(max(atast))
 
+dabile = {}
+
 
 with open('a_mod_lit_f.txt', "r", encoding="utf-16") as file:
     for line in file:
         line_t = line.split("\t", 2)
         key = line_t[0]
-        value = [line_t[1].split(",") , line_t[2].replace("\n", "").split(",")]
+        value = [line_t[1].split(","), line_t[2].replace("\n", "").split(",")]
         val_end = []
         for ind, val in enumerate(value[0]):
             val_end.append([val, value[1][ind]])
@@ -56,7 +55,9 @@ for ind, val in enumerate(dabile_key):
     dabile_key[ind] = list(val)
 
 
-def guess_word(text):
+def guess_word(text, net_lt):
+    if text =='':
+        return None
     text_cp = text[-1:]
     text_n = text.split()
     if len(text) > 3:
@@ -70,19 +71,20 @@ def guess_word(text):
             con_c = 1
             det = [[text, con_c], dabile[text]]
             break
+        det_tt = []
         for ind in dabile:
             if ind.startswith(text):
+                det_tt.append([ind, 0])
                 con_c = 2
-                det = [[ind, con_c], dabile[ind]]
-                break
+                # break
         if con_c == 2:
+            det = [[text, con_c], det_tt]
             break
         text_n.pop(0)
     if len(text_n) == 0:
         text_p = highest_probability(text_dp, dabile_key)
         tex_dc = dabile_key_df[text_p]
         det = [[tex_dc, con_c], dabile[tex_dc]]
-    net_lt = 6
     cap_v = 0.7
     det[1].sort(key=lambda s: s[1], reverse=True)
     if len(det[1]) > net_lt:
@@ -97,6 +99,6 @@ def guess_word(text):
 
 
 
-tex = "hoa mai là một lo"
+tex = "hoa mai là một l"
 print(tex)
-print(guess_word(tex.lower()))
+print(guess_word(tex.lower(), 6))

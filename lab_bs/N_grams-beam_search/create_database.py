@@ -94,6 +94,9 @@ for w_l in range(1, WORD_LENGTH+1):
         string_ints = [str(int) for int in value[1]]
         file.write(k + "\t" + ",".join(value[0]) + "\t" + ",".join(string_ints)+"\n")
     print("at: ", w_l)
+
+
+
 # sequences = re.sub('\s', ' ', re.sub('\W+', ' ', sequences))
 # sequences = sequences.split()
 # sequences = ngrams(sequences, 3)
