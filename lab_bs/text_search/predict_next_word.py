@@ -85,9 +85,7 @@ def from_text_Next_Word_Prediction(text, n=3):
         text_n[-1] = text_n[-1]+" "
     else:
         text_n = text[-PREDICTED_LENGTH*9:].split()[-PREDICTED_LENGTH:]
-    print(text)
-    print(text_n)
-    len_list_text_pd = len(list_text_pd)
+    len_list_text_pd = len(list_text_pd)-1
     while len(text_n) > 0:
         text = " ".join(text_n)
         for ind, text_p in enumerate(list_text_pd):
