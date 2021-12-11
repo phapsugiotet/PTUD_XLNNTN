@@ -27,6 +27,9 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(491, 542)
+        self.LIST_PD=['', '', '', '', '']
+        self.LIST_XD=[]
+        self.LIST_YD=[]
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -225,16 +228,13 @@ class Ui_MainWindow(object):
             _translate = QtCore.QCoreApplication.translate
             self.pushButton_6.setText(_translate("MainWindow", "Bộ nhớ trống"))
     def doSomething(self):
-        try:
-            if len(threading.enumerate()) == 1:
-                self.LIST_YD = []
-                self.t1 = threading.Thread(target=self.pry, args=())
-                self.t1.start()
-            else:
-                self.LIST_YD.append(str(self.textEdit.toPlainText()))
-        except:
-            print("erol doSomething")
-            pass
+        if len(threading.enumerate()) <= 1:
+            self.LIST_YD = []
+            self.t1 = threading.Thread(target=self.pry, args=())
+            self.t1.start()
+        else:
+            self.LIST_YD.append(str(self.textEdit.toPlainText()))
+
 
     def Btn_onc(self, n):
         self.textEdit.textCursor().insertText(self.LIST_PD[n])
@@ -336,7 +336,7 @@ class Ui_MainWindow(object):
         else:
             self.pushButton_3.setStyleSheet('color: red;}')
             try:
-                if len(threading.enumerate()) == 2:
+                if len(threading.enumerate()) <= 2:
                     self.LIST_XD = []
                     self.t1 = threading.Thread(target=self.prx, args=(str(self.textEdit.toPlainText()), 5))
                     self.t1.start()
@@ -568,41 +568,37 @@ for ind, val in enumerate(dabile_key):
 
 if os.path.exists("dota.txt") and os.path.exists("hata.txt"):
     file1 = open("hata.txt", "r+", encoding="utf-16")
-    file2 = open("dota.txt", "r+", encoding="utf-16")
-    text_Z = file2.read() + " " + re.sub('\s+', ' ', re.sub('\W', ' ', file1.read()))
+    file2 = open("dota.txt", "r", encoding="utf-16")
+    text_Z = re.sub('\s+', ' ', re.sub('\W', ' ',file2.read() + " " + file1.read()))
     if len(text_Z) > MEMORY_LEN:
         text_Z = text_Z[-MEMORY_LEN:].split(" ", 1)[1]
     file1.truncate(0)
-    file2.truncate(0)
+    file2.close()
+    file2 = open("dota.txt", "w+", encoding="utf-16")
     file2.write(text_Z)
     file1.close()
     file2.close()
     text_db = text_Z
 elif not os.path.exists("dota.txt") and os.path.exists("hata.txt"):
     file1 = open("hata.txt", "r+", encoding="utf-16")
-    file2 = open("dota.txt", "w", encoding="utf-16")
+    file2 = open("dota.txt", "w+", encoding="utf-16")
     text_Z = re.sub('\s+', ' ', re.sub('\W', ' ', file1.read()))
     if len(text_Z) > MEMORY_LEN:
         text_Z = text_Z[-MEMORY_LEN:].split(" ", 1)[1]
     file1.truncate(0)
-    file2.truncate(0)
     file2.write(text_Z)
     file1.close()
     file2.close()
     text_db = text_Z
 elif os.path.exists("dota.txt") and not os.path.exists("hata.txt"):
-    file1 = open("dota.txt", "w", encoding="utf-16")
-    text_Z = file1.read()
-    if len(text_Z) > MEMORY_LEN:
-        text_Z = text_Z[-MEMORY_LEN:].split(" ", 1)[1]
-    file1.truncate(0)
-    file1.write(text_Z)
+    file1 = open("dota.txt", "r", encoding="utf-16")
+    text_db = file1.read()
     file1.close()
-    text_db = text_Z
 elif not os.path.exists("dota.txt") and not os.path.exists("hata.txt"):
-    file2 = open("dota.txt", "x", encoding="utf-16")
-    file2.close()
-    text_db = ""
+    file1 = open("dota.txt", "w+", encoding="utf-16")
+    file1.write("đây là sảng phẩm của Nguyễn Hoàng Nam Và Lê Khắc Chiến")
+    file1.close()
+    text_db = "đây là sảng phẩm của Nguyễn Hoàng Nam Và Lê Khắc Chiến "
 # print(text_db)
 
 
