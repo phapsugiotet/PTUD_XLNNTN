@@ -44,7 +44,7 @@ for w_l in range(1, WORD_LENGTH+1):
     for x in sequences:
         x = re.sub('\s', ' ', re.sub('\W+', ' ', x))
         x = x.split()
-        x = get_n_grams(x, w_l+1)
+        x = get_n_grams(x, w_l+2)
         stras += x
 
     stras_t = []
