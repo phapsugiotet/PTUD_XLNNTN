@@ -18,7 +18,7 @@ def get_n_grams(texts, n=5):
     return n_grams_ls
 
 
-WORD_LENGTH = 3
+WORD_LENGTH = 2
 
 
 file_list = []
@@ -67,15 +67,15 @@ for w_l in range(1, WORD_LENGTH+1):
     print("n_grams_ls", end="  ")
 
     for k, value in n_grams_ls.items():
-        kafa = 0
+        kafa = 1
         valack = []
         valdet = []
         for x in value:
             if x in valack:
-                valdet[valack.index(x)]=valdet[valack.index(x)]+1
+                valdet[valack.index(x)] = valdet[valack.index(x)]+1
             else:
                 valack.append(x)
-                valdet.append(0)
+                valdet.append(kafa)
         n_grams_ls[k] = [valack, valdet]
     print("n_grams_eu", end="  ")
     # print(n_grams_ls)
