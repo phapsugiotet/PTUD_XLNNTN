@@ -1,0 +1,12 @@
+{
+  "base_url": "/",
+  "hostname": "localhost",
+  "password": false,
+  "pid": 1232,
+  "port": 8826,
+  "root_dir": "C:\\Users\\phaps",
+  "secure": false,
+  "token": "9852fe37b670a40aedc7b70f454c8de1f09ef91d9b99a55f",
+  "url": "http://localhost:8826/",
+  "version": "1.4.1"
+}

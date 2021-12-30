@@ -1,0 +1,12 @@
+{
+  "shell_port": 61301,
+  "iopub_port": 61302,
+  "stdin_port": 61303,
+  "control_port": 61305,
+  "hb_port": 61304,
+  "ip": "127.0.0.1",
+  "key": "2a9c6f3e-84df989920881ada4649ce3c",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "web_dog_breed_pr"
+}

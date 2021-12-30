@@ -1,0 +1,14 @@
+{
+ "argv": [
+  "C:\\Users\\phaps\\anaconda3\\envs\\heli\\python.exe",
+  "-m",
+  "ipykernel_launcher",
+  "-f",
+  "{connection_file}"
+ ],
+ "display_name": "heli",
+ "language": "python",
+ "metadata": {
+  "debugger": true
+ }
+}

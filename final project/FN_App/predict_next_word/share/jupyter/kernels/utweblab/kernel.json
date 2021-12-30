@@ -1,0 +1,14 @@
+{
+ "argv": [
+  "C:\\Users\\phaps\\Anaconda3\\envs\\UtWebLAb\\python.exe",
+  "-m",
+  "ipykernel_launcher",
+  "-f",
+  "{connection_file}"
+ ],
+ "display_name": "UtWebLAb",
+ "language": "python",
+ "metadata": {
+  "debugger": true
+ }
+}

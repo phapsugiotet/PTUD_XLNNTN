@@ -1,0 +1,12 @@
+{
+  "shell_port": 54098,
+  "iopub_port": 54099,
+  "stdin_port": 54100,
+  "control_port": 54102,
+  "hb_port": 54101,
+  "ip": "127.0.0.1",
+  "key": "7719019c-bc68c441783b75ed7ab58d49",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "web_dog_breed_pr"
+}

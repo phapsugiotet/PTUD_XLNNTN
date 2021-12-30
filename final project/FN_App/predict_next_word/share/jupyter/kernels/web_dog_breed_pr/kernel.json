@@ -1,0 +1,14 @@
+{
+ "argv": [
+  "C:\\Users\\phaps\\Anaconda3\\envs\\web_dog_breed_pr\\python.exe",
+  "-m",
+  "ipykernel_launcher",
+  "-f",
+  "{connection_file}"
+ ],
+ "display_name": "web_dog_breed_pr",
+ "language": "python",
+ "metadata": {
+  "debugger": true
+ }
+}

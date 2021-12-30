@@ -1,0 +1,12 @@
+{
+  "base_url": "/",
+  "hostname": "localhost",
+  "notebook_dir": "C:\\Users\\phaps",
+  "password": false,
+  "pid": 9012,
+  "port": 8889,
+  "secure": false,
+  "sock": "",
+  "token": "c0d87cf5c40b0f198df258502dece3dc63018eec7b3e9efd",
+  "url": "http://localhost:8889/"
+}

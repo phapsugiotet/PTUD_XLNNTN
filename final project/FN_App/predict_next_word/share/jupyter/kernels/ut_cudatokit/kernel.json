@@ -1,0 +1,14 @@
+{
+ "argv": [
+  "C:\\Users\\phaps\\Anaconda3\\envs\\ut_cudatokit\\python.exe",
+  "-m",
+  "ipykernel_launcher",
+  "-f",
+  "{connection_file}"
+ ],
+ "display_name": "ut_cudatokit",
+ "language": "python",
+ "metadata": {
+  "debugger": true
+ }
+}

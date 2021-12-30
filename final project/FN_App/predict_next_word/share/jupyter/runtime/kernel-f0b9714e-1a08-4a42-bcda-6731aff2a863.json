@@ -1,0 +1,12 @@
+{
+  "shell_port": 65132,
+  "iopub_port": 65133,
+  "stdin_port": 65134,
+  "control_port": 65136,
+  "hb_port": 65135,
+  "ip": "127.0.0.1",
+  "key": "cd82a4e9-c0406fd9b887a375706ef9ed",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "weblab"
+}

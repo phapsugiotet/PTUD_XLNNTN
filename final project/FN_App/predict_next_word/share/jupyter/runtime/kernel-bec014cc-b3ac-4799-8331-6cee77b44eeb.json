@@ -1,0 +1,12 @@
+{
+  "shell_port": 62180,
+  "iopub_port": 62181,
+  "stdin_port": 62182,
+  "control_port": 62184,
+  "hb_port": 62183,
+  "ip": "127.0.0.1",
+  "key": "65ca6abb-116ff8cf5b7212acdabdcc35",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "conda-env-web_dog_breed_pr-py"
+}
