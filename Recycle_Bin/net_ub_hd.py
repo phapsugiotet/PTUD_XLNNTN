@@ -17,39 +17,33 @@ import threading
 import random
 import time
 import re
-import os
 
 WORD_LENGTH = 2
 PREDICTED_LENGTH = 5
-MEMORY_LEN = 5000
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(491, 542)
+        MainWindow.resize(552, 524)
         self.LIST_PD=['', '', '', '', '']
         self.LIST_XD=[]
         self.LIST_YD=[]
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
         self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_2.setFont(font)
+        self.label_2.setObjectName("label_2")
+        self.verticalLayout_2.addWidget(self.label_2)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.verticalLayout = QtWidgets.QVBoxLayout()
-        self.verticalLayout.setSpacing(0)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setEnabled(True)
-        font = QtGui.QFont()
-        font.setFamily("MS UI Gothic")
-        font.setStrikeOut(False)
-        self.label_3.setFont(font)
-        self.label_3.setToolTipDuration(0)
-        self.label_3.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignHCenter)
-        self.label_3.setObjectName("label_3")
-        self.verticalLayout.addWidget(self.label_3)
         self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(10)
@@ -57,21 +51,7 @@ class Ui_MainWindow(object):
         self.pushButton_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_3.setObjectName("pushButton_3")
         self.pushButton_3.clicked.connect(lambda: self.Btn_onc(0))
-        self.verticalLayout.addWidget(self.pushButton_3)
-        self.horizontalLayout.addLayout(self.verticalLayout)
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_3.setSpacing(0)
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setEnabled(True)
-        font = QtGui.QFont()
-        font.setFamily("MS UI Gothic")
-        font.setStrikeOut(False)
-        self.label_4.setFont(font)
-        self.label_4.setToolTipDuration(0)
-        self.label_4.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignHCenter)
-        self.label_4.setObjectName("label_4")
-        self.verticalLayout_3.addWidget(self.label_4)
+        self.horizontalLayout.addWidget(self.pushButton_3)
         self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(10)
@@ -79,21 +59,7 @@ class Ui_MainWindow(object):
         self.pushButton_4.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_4.setObjectName("pushButton_4")
         self.pushButton_4.clicked.connect(lambda: self.Btn_onc(1))
-        self.verticalLayout_3.addWidget(self.pushButton_4)
-        self.horizontalLayout.addLayout(self.verticalLayout_3)
-        self.verticalLayout_4 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_4.setSpacing(0)
-        self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setEnabled(True)
-        font = QtGui.QFont()
-        font.setFamily("MS UI Gothic")
-        font.setStrikeOut(False)
-        self.label_5.setFont(font)
-        self.label_5.setToolTipDuration(0)
-        self.label_5.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignHCenter)
-        self.label_5.setObjectName("label_5")
-        self.verticalLayout_4.addWidget(self.label_5)
+        self.horizontalLayout.addWidget(self.pushButton_4)
         self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(10)
@@ -101,21 +67,7 @@ class Ui_MainWindow(object):
         self.pushButton_5.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_5.setObjectName("pushButton_5")
         self.pushButton_5.clicked.connect(lambda: self.Btn_onc(2))
-        self.verticalLayout_4.addWidget(self.pushButton_5)
-        self.horizontalLayout.addLayout(self.verticalLayout_4)
-        self.verticalLayout_5 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_5.setSpacing(0)
-        self.verticalLayout_5.setObjectName("verticalLayout_5")
-        self.label_6 = QtWidgets.QLabel(self.centralwidget)
-        self.label_6.setEnabled(True)
-        font = QtGui.QFont()
-        font.setFamily("MS UI Gothic")
-        font.setStrikeOut(False)
-        self.label_6.setFont(font)
-        self.label_6.setToolTipDuration(0)
-        self.label_6.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignHCenter)
-        self.label_6.setObjectName("label_6")
-        self.verticalLayout_5.addWidget(self.label_6)
+        self.horizontalLayout.addWidget(self.pushButton_5)
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(10)
@@ -123,51 +75,24 @@ class Ui_MainWindow(object):
         self.pushButton_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_2.setObjectName("pushButton_2")
         self.pushButton_2.clicked.connect(lambda: self.Btn_onc(3))
-        self.verticalLayout_5.addWidget(self.pushButton_2)
-        self.horizontalLayout.addLayout(self.verticalLayout_5)
-        self.verticalLayout_6 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_6.setSpacing(0)
-        self.verticalLayout_6.setObjectName("verticalLayout_6")
-        self.label_7 = QtWidgets.QLabel(self.centralwidget)
-        self.label_7.setEnabled(True)
-        font = QtGui.QFont()
-        font.setFamily("MS UI Gothic")
-        font.setStrikeOut(False)
-        self.label_7.setFont(font)
-        self.label_7.setToolTipDuration(0)
-        self.label_7.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignHCenter)
-        self.label_7.setObjectName("label_7")
-        self.verticalLayout_6.addWidget(self.label_7)
+        self.horizontalLayout.addWidget(self.pushButton_2)
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setEnabled(True)
         font = QtGui.QFont()
         font.setPointSize(10)
         self.pushButton.setFont(font)
         self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton.setToolTipDuration(-1)
-        self.pushButton.setIconSize(QtCore.QSize(16, 16))
         self.pushButton.setObjectName("pushButton")
         self.pushButton.clicked.connect(lambda: self.Btn_onc(4))
-        self.verticalLayout_6.addWidget(self.pushButton)
-        self.horizontalLayout.addLayout(self.verticalLayout_6)
+        self.horizontalLayout.addWidget(self.pushButton)
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
         self.verticalLayout_2.addLayout(self.horizontalLayout)
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.label = QtWidgets.QLabel(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(12)
         self.label.setFont(font)
         self.label.setObjectName("label")
-        self.horizontalLayout_2.addWidget(self.label)
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_2.addItem(spacerItem1)
-        self.pushButton_6 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_6.setObjectName("pushButton_6")
-        self.pushButton_6.clicked.connect(self.clear_memory)
-        self.horizontalLayout_2.addWidget(self.pushButton_6)
-        self.verticalLayout_2.addLayout(self.horizontalLayout_2)
+        self.verticalLayout_2.addWidget(self.label)
         self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(10)
@@ -175,6 +100,7 @@ class Ui_MainWindow(object):
         self.textEdit.setObjectName("textEdit")
         self.textEdit.textChanged.connect(self.doSomething)
         self.verticalLayout_2.addWidget(self.textEdit)
+        self.verticalLayout.addLayout(self.verticalLayout_2)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -196,53 +122,36 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Hỗ trợ viết văn bản"))
-        self.label_3.setText(_translate("MainWindow", "1"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.label_2.setText(_translate("MainWindow", ""))
         self.pushButton_3.setText(_translate("MainWindow", "Gợi ý từ"))
-        self.label_4.setText(_translate("MainWindow", "2"))
         self.pushButton_4.setText(_translate("MainWindow", "2"))
-        self.label_5.setText(_translate("MainWindow", "3"))
         self.pushButton_5.setText(_translate("MainWindow", "3"))
-        self.label_6.setText(_translate("MainWindow", "4"))
         self.pushButton_2.setText(_translate("MainWindow", "4"))
-        self.label_7.setText(_translate("MainWindow", "5"))
         self.pushButton.setText(_translate("MainWindow", "5"))
         self.label.setText(_translate("MainWindow", "Nhập văn bản"))
-        if os.path.exists("hata.txt"):
-            self.pushButton_6.setText(_translate("MainWindow", "Xóa bộ nhớ"))
-        else:
-            self.pushButton_6.setText(_translate("MainWindow", "Bộ nhớ trống"))
         self.pushButton_4.hide()
-        self.label_4.hide()
         self.pushButton_5.hide()
-        self.label_5.hide()
         self.pushButton_2.hide()
-        self.label_6.hide()
         self.pushButton.hide()
-        self.label_7.hide()
 
-    def clear_memory(self):
-        if os.path.exists("dota.txt") and os.path.exists("hata.txt"):
-            os.remove("dota.txt")
-            os.remove("hata.txt")
-            _translate = QtCore.QCoreApplication.translate
-            self.pushButton_6.setText(_translate("MainWindow", "Bộ nhớ trống"))
     def doSomething(self):
-        if len(threading.enumerate()) <= 1:
-            self.LIST_YD = []
-            self.t1 = threading.Thread(target=self.pry, args=())
-            self.t1.start()
-        else:
-            self.LIST_YD.append(str(self.textEdit.toPlainText()))
-
+        try:
+            if len(threading.enumerate()) == 1:
+                self.LIST_YD = []
+                self.t1 = threading.Thread(target=self.pry, args=())
+                self.t1.start()
+            else:
+                self.LIST_YD.append(str(self.textEdit.toPlainText()))
+        except:
+            print("erol doSomething")
+            pass
 
     def Btn_onc(self, n):
         self.textEdit.textCursor().insertText(self.LIST_PD[n])
         file = open("hata.txt", "w", encoding="utf-16")
         file.write(str(self.textEdit.toPlainText()))
         file.close()
-        _translate = QtCore.QCoreApplication.translate
-        self.pushButton_6.setText(_translate("MainWindow", "Xóa bộ nhớ"))
 
     def on_open(self):
         print('Ctrl O has been fired')
@@ -260,13 +169,9 @@ class Ui_MainWindow(object):
             self.pushButton.setText(_translate("MainWindow", ""))
             self.LIST_PD = ["", "", "", "", ""]
             self.pushButton_4.hide()
-            self.label_4.hide()
             self.pushButton_5.hide()
-            self.label_5.hide()
             self.pushButton_2.hide()
-            self.label_6.hide()
             self.pushButton.hide()
-            self.label_7.hide()
             if len(self.LIST_XD) > 0:
                 self.LIST_XD = []
                 self.t1 = threading.Thread(target=self.prx, args=(str(self.textEdit.toPlainText()), 5))
@@ -291,52 +196,31 @@ class Ui_MainWindow(object):
             self.pushButton.setText(_translate("MainWindow", list_at[4][0]))
             self.LIST_AT = list_at
             self.LIST_PD = [list_at[0][1], list_at[1][1], list_at[2][1], list_at[3][1], list_at[4][1]]
-
-            print("cro", self.LIST_PD)
             if list_at[0][0] == "":
                 self.pushButton_3.hide()
-                self.label_3.hide()
             else:
                 self.pushButton_3.show()
-                self.label_3.show()
-
-
             if list_at[1][0] == "":
                 self.pushButton_4.hide()
-                self.label_4.hide()
             else:
                 self.pushButton_4.show()
-                self.label_4.show()
-
-
             if list_at[2][0] == "":
                 self.pushButton_5.hide()
-                self.label_5.hide()
             else:
                 self.pushButton_5.show()
-                self.label_5.show()
-
-
             if list_at[3][0] == "":
                 self.pushButton_2.hide()
-                self.label_6.hide()
             else:
                 self.pushButton_2.show()
-                self.label_6.show()
-
-
             if list_at[4][0] == "":
                 self.pushButton.hide()
-                self.label_7.hide()
             else:
                 self.pushButton.show()
-                self.label_7.show()
-
 
         else:
             self.pushButton_3.setStyleSheet('color: red;}')
             try:
-                if len(threading.enumerate()) <= 2:
+                if len(threading.enumerate()) == 2:
                     self.LIST_XD = []
                     self.t1 = threading.Thread(target=self.prx, args=(str(self.textEdit.toPlainText()), 5))
                     self.t1.start()
@@ -349,8 +233,6 @@ class Ui_MainWindow(object):
             self.LIST_YD = []
             self.t1 = threading.Thread(target=self.prx, args=(str(self.textEdit.toPlainText()), 5))
             self.t1.start()
-
-
 
 def texts_Compare_similarity(ls_text1, ls_text2):
     ata = 0
@@ -388,21 +270,6 @@ def highest_probability(piece_text, piece_list):
     return atast.index(max(atast))
 
 
-def custom_random(listz, weightsx, ky):
-    if len(listz) == ky:
-        return listz
-    safa = random.choices(listz, weights=weightsx, k=ky)
-    safa = list(set(safa))
-    len_co = ky - len(safa)
-    if len_co > 0:
-        for ind in safa:
-            id = listz.index(ind)
-            listz.pop(id)
-            weightsx.pop(id)
-        return safa + custom_random(listz, weightsx, len_co)
-    return safa
-
-
 def guess_word(text, net_lt, len_n=2, approximately=False):
     if text == '':
         return []
@@ -420,15 +287,13 @@ def guess_word(text, net_lt, len_n=2, approximately=False):
             det = [[text, con_c], dabile[text]]
             break
         det_tt = []
-        det_te = []
         for ind in dabile:
             if ind.startswith(text):
-                det_tt.append(ind)
-                det_te.append(1)
+                det_tt.append([ind, 0])
                 con_c = 2
                 # break
         if con_c == 2:
-            det = [[text, con_c], [det_tt, det_te]]
+            det = [[text, con_c], det_tt]
             break
         text_n.pop(0)
     if len(text_n) == 0:
@@ -436,15 +301,17 @@ def guess_word(text, net_lt, len_n=2, approximately=False):
             return []
         text_p = highest_probability(text_dp, dabile_key)
         tex_dc = dabile_key_df[text_p]
-        det = [[tex_dc, con_c], [dabile[tex_dc], [1]]]
+        det = [[tex_dc, con_c], dabile[tex_dc]]
         # return None
-    len_det = len(det[1][0])
-    if len_det > net_lt:
-        det[1] = custom_random(list(det[1][0]), list(det[1][1]), net_lt)
-        # print("map 2", det)
-        return det
-    det[1] = custom_random(list(det[1][0]), list(det[1][1]), len_det)
-    # print("map 1", det)
+    cap_v = 0.7
+    det[1].sort(key=lambda s: s[1], reverse=True)
+    if len(det[1]) > net_lt:
+        nat = int(net_lt*cap_v)
+        det[1] = det[1][:nat] + random.choices(det[1][nat:], k=net_lt-nat)
+    valueb = []
+    for x in det[1]:
+        valueb.append(x[0])
+    det[1] = valueb
     return det
 
 
@@ -484,7 +351,7 @@ def predict_next_word(text, net_lt, len_n=2, approximately=False):
     pre_list = prediction_op[0][0].split()
     if len(pre_list) > 1:
         pre_list.pop(0)
-        prediction_list += predict_next_word(" ".join(pre_list)+pas[1], net_lt, len_n, approximately)
+        prediction_list += predict_next_word(" ".join(pre_list)+pas[1], net_lt*2, len_n, approximately)
         detra = []
         detro = []
         for x in prediction_list:
@@ -494,7 +361,6 @@ def predict_next_word(text, net_lt, len_n=2, approximately=False):
         prediction_list = detro[0:net_lt]
     for i in range(net_lt - len(prediction_list)):
         prediction_list.append(["", ""])
-    # print("pre ".prediction_list)
     return prediction_list
 
 
@@ -550,71 +416,50 @@ def predict_next_word_in_view(text, idx=5):
         list_at = [list_af[0]] + list_at
     detra = []
     detro = []
-    # print("sep 1", list_at)
     for x in list_at:
         if (not x[0] in detra) or x[0] == "":
             detro.append(x)
             detra.append(x[0])
     if detra.count("") == idx:
         return None
-    list_at = detro[0:idx]
+    list_at = detro[0:idx-1]
     for i in range(idx-len(list_at)):
         list_at.append(["", ""])
-    # print("sep", list_at)
     return list_at
 
 
 dabile = {}
 
 
-with open('a_mod_lit_f_w_tk.txt', "r", encoding="utf-16") as file:
+with open('../final project/FN_Code/N_grams/a_mod_lit_f.txt', "r", encoding="utf-16") as file:
     for line in file:
         line_t = line.split("\t", 2)
         key = line_t[0]
         if len(key.split()) > WORD_LENGTH:
             continue
-        value = [line_t[1].split(","), list(map(int, line_t[2].replace("\n", "").split(",")))]
-        dabile[key] = value
+        value = [line_t[1].split(","), line_t[2].replace("\n", "").split(",")]
+        val_end = []
+        for ind, val in enumerate(value[0]):
+            val_end.append([val, value[1][ind]])
+        dabile[key] = val_end
 
 dabile_key = list(dabile.keys())
 dabile_key_df = list(dabile.keys())
 for ind, val in enumerate(dabile_key):
     dabile_key[ind] = list(val)
 
-
-if os.path.exists("dota.txt") and os.path.exists("hata.txt"):
-    file1 = open("hata.txt", "r+", encoding="utf-16")
-    file2 = open("dota.txt", "r", encoding="utf-16")
-    text_Z = re.sub('\s+', ' ', re.sub('\W', ' ',file2.read() + " " + file1.read()))
-    if len(text_Z) > MEMORY_LEN:
-        text_Z = text_Z[-MEMORY_LEN:].split(" ", 1)[1]
-    file1.truncate(0)
-    file2.close()
-    file2 = open("dota.txt", "w+", encoding="utf-16")
-    file2.write(text_Z)
-    file1.close()
-    file2.close()
-    text_db = text_Z
-elif not os.path.exists("dota.txt") and os.path.exists("hata.txt"):
-    file1 = open("hata.txt", "r+", encoding="utf-16")
-    file2 = open("dota.txt", "w+", encoding="utf-16")
-    text_Z = re.sub('\s+', ' ', re.sub('\W', ' ', file1.read()))
-    if len(text_Z) > MEMORY_LEN:
-        text_Z = text_Z[-MEMORY_LEN:].split(" ", 1)[1]
-    file1.truncate(0)
-    file2.write(text_Z)
-    file1.close()
-    file2.close()
-    text_db = text_Z
-elif os.path.exists("dota.txt") and not os.path.exists("hata.txt"):
-    file1 = open("dota.txt", "r", encoding="utf-16")
-    text_db = file1.read()
-    file1.close()
-elif not os.path.exists("dota.txt") and not os.path.exists("hata.txt"):
-    file1 = open("dota.txt", "w+", encoding="utf-16")
-    file1.write("đây là sảng phẩm của Nguyễn Hoàng Nam Và Lê Khắc Chiến")
-    file1.close()
-    text_db = "đây là sảng phẩm của Nguyễn Hoàng Nam Và Lê Khắc Chiến "
+file1 = open("hata.txt", "r+", encoding="utf-16")
+file2 = open("../final project/FN_Code/dota.txt", "a+", encoding="utf-16")
+text_1 = file1.read()
+text_1 = re.sub('\s+', ' ', re.sub('\W', ' ', text_1))
+file2.write(" "+text_1)
+file1.truncate(0)
+file1.close()
+file2.close()
+file2 =open("../final project/FN_Code/dota.txt", "r", encoding="utf-16")
+open("hata.txt", "r", encoding="utf-16")
+text_db = file2.read()
+file2.close()
 # print(text_db)
 
 

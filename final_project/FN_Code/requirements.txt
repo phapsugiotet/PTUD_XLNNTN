@@ -1,0 +1,4 @@
+pip==21.3.1
+PyQt5==5.15.6
+underthesea==1.2.3
+nltk==3.6.5
