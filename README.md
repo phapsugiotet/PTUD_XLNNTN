@@ -5,7 +5,7 @@ ______________________________________________________________________
 Chương trình ứng dụng hỗ trợ viết văn bản Tiếng Việt
 
 người thực hiện:
-  - Lê Khắc chiến
+  - Lê Khắc Chiến
   - Nguyễn Hoàng Nam    gmail: namhoangit25@gmail.com
 
 
